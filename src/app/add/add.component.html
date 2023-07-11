@@ -1,0 +1,132 @@
+<div class="container">
+    <form [formGroup]="Addrecord" (ngSubmit)="postrecord(Addrecord.value)">
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="firstName" formControlName="firstName">
+            <mat-error *ngIf=" !Addrecord.hasError('required')">
+                Please enter a your firstName
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="lastName" formControlName="lastName">
+            <mat-error *ngIf=" !Addrecord.hasError('required')">
+                Please enter a your lastName
+            </mat-error>
+        </mat-form-field>
+
+        <div class="col-3">
+            <label for="">select gender</label>
+            <select  class="form-control" formControlName="genderId">
+                <option value="">select</option>
+                <option *ngFor="let item of value1" [value]="item.genderId">{{item.gender}}</option>
+               
+            </select>
+        </div>
+
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="enter your dob" [matDatepicker]="picker" formControlName="dob">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf=" !Addrecord.hasError('required')">
+                Please enter a your dob
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="phonenum" formControlName="phonenum">
+            <mat-error *ngIf=" !Addrecord.hasError('required')">
+                Please enter a your phonenum
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="zipcode" formControlName="zipcode">
+            <mat-error *ngIf=" !Addrecord.hasError('required')">
+                Please enter a your zipcode
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="address" formControlName="address">
+            <mat-error *ngIf=" !Addrecord.hasError('required')">
+                Please enter a your address
+            </mat-error>
+
+        </mat-form-field>
+
+        <div class="col-3">
+            <label for="">select country</label>
+            <select #country (change)="getstatedata(country.value)" class="form-control" formControlName="countryId">
+                <option value="">select country</option>
+                <option *ngFor="let item of countryvalue" [value]="item.countryId">{{item.countryName}}</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <label for="">select state</label>
+            <select #state (change)="getcitydata(state.value)" class="form-control" formControlName="stateId">
+                <option value="">select state</option>
+                <option *ngFor="let item of statedata" [value]="item.stateId">{{item.state}}</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <label for="">select city</label>
+            <select  class="form-control" formControlName="cityId">
+                <option value="">select</option>
+                <option *ngFor="let item of citydata" [value]="item.cityId">{{item.city}}</option>
+            </select>
+        </div>
+   
+<!-- 
+
+        <mat-form-field appearance="fill">
+            <mat-label>STATE</mat-label>
+            <mat-select  required formControlName="stateId">
+                <mat-option [value]=1>uttarakhand</mat-option>
+                <mat-option [value]=1>delhi</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>CITY</mat-label>
+            <mat-select formControlName="cityId">
+                <mat-option [value]=1>Haldwani</mat-option>
+                <mat-option [value]=2>Dehradun</mat-option>
+            </mat-select>
+        </mat-form-field> -->
+
+        <!-- <mat-form-field appearance="fill">
+            <input matInput type="email" formControlName="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="!Addrecord.hasError('email') || !Addrecord.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field> -->
+
+        <!-- <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker" formControlName="dob">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf=" !Addrecord.hasError('required')">
+                Please enter a your dob
+            </mat-error>
+        </mat-form-field> -->
+
+
+        <!-- <mat-form-field class="example-full-width">
+        <mat-label>phone</mat-label>
+        <span matPrefix>+1 &nbsp;</span>
+        <input type="tel" matInput placeholder="555-555-1234" formControlName="phone">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf=" !Addrecord.hasError('required')">
+            Please enter a your phone no
+        </mat-error>
+      </mat-form-field> -->
+        <div>
+            <button mat-flat-button color="primary" (click)="dbclick()" >Cancel</button>&nbsp;&nbsp;&nbsp;
+            <button mat-flat-button color="primary">Post</button>
+        </div>
+    </form>
+
+</div>

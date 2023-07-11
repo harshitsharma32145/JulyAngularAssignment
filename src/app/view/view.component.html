@@ -1,0 +1,64 @@
+<div class="container">
+
+   
+
+    <table  border="2px">
+
+   
+
+        <tr><th colspan="4"> <b>NAME : </b>{{user.firstName  + " " + user.lastName}}</th></tr>
+
+       
+
+        <tr>
+
+            <td><b> Gender:</b>{{user.gender}}</td>
+
+            <td><b> DOB :</b> {{user.dob | date}}</td>
+
+        </tr>
+
+
+
+
+        <tr>
+
+            <td><b>Phone :</b>{{user.phone}} </td>
+
+            <td><b>Email :</b> {{user.email}} </td>
+
+
+
+
+        </tr>
+
+   
+
+        <tr>
+
+            <td><b>Country :</b>{{user.countryName}} </td>
+
+            <td><b>State :</b>{{user.stateName}} </td>
+
+        </tr>
+
+   
+
+        <tr>
+
+            <td><b>City :</b> {{user.cityName}} </td>
+
+            <td><b>Zipcode :</b> {{user.zipcode}} </td>
+
+        </tr>
+
+
+
+
+        <tr><th colspan="4"> <b>Address : </b>{{user.address}} </th></tr>
+
+       
+
+    </table>
+
+</div>

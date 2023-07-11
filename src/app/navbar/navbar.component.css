@@ -1,0 +1,36 @@
+
+.head1 a{
+    text-decoration: none;  
+    
+}
+
+a{
+    color: aliceblue;
+    font-weight: 500;
+}
+nav{
+    background-color: #9c27b0;
+    padding: 15px;
+    z-index: 500;
+  
+}
+.head1 li{
+    margin: 0 13px;
+    list-style-type: none;
+   
+}
+.animate{
+    animation: animation 1s infinite ease-in;
+}
+
+
+
+@keyframes animation {
+    0% {
+        color: aliceblue;
+    
+    }
+    100% {
+        color: black;
+    }
+}

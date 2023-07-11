@@ -1,0 +1,110 @@
+<div class="container">
+    <form [formGroup]="Updaterecord" (ngSubmit)="UpdateEmployee(Updaterecord.value)">
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="firstName" formControlName="firstName">
+            <mat-error *ngIf=" !Updaterecord.hasError('required')">
+                Please enter a your firstName
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="lastName" formControlName="lastName">
+            <mat-error *ngIf=" !Updaterecord.hasError('required')">
+                Please enter a your lastName
+            </mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>gender</mat-label>
+            <mat-select formControlName="genderId">
+                <option [value]=1>Male</option>
+                <option [value]=2>Female</option>
+                <option [value]=3>Other</option>
+            </mat-select>
+        </mat-form-field> -->
+
+
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>gender</mat-label>
+            <mat-select formControlName="genderId">
+             <mat-option    [value]=1>Male</mat-option>
+                <mat-option [value]=2>Female</mat-option>
+                <mat-option [value]=3>Other</mat-option>
+            </mat-select>
+        </mat-form-field> -->
+        <div class="col-3">
+            <label for="">select gender</label>
+            <select class="form-control" formControlName="genderId">
+                <option value="">select</option>
+                <option *ngFor="let item of value1" [value]="item.genderId">{{item.gender}}</option>
+            </select>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker" formControlName="dob">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf=" !Updaterecord.hasError('required')">
+                Please enter a your dob
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="phonenum" formControlName="phonenum">
+            <mat-error *ngIf=" !Updaterecord.hasError('required')">
+                Please enter a your phonenum
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="zipcode" formControlName="zipcode">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="address" formControlName="address">
+            <mat-error *ngIf=" !Updaterecord.hasError('required')">
+                Please enter a your zipcode
+            </mat-error>
+        </mat-form-field>
+
+
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>COUNTRY</mat-label>
+
+
+            <select matNativeControl required formControlName="countryId">
+
+                <option value="1">India</option>
+
+                <option value="2">Srilanka</option>
+                <option value="3">USA</option>
+
+            </select>
+        </mat-form-field> -->
+        <div class="col-3">
+            <label for="">select country</label>
+            <select #country (change)="getstatedata(country.value)" class="form-control" formControlName="countryId">
+                <option value="">select country</option>
+                <option *ngFor="let item of countryvalue" [value]="item.countryId">{{item.countryName}}</option>
+            </select>
+        </div>
+
+        <div class="col-3">
+            <label for="">select state</label>
+            <select #state ((change))="getcitydata(state.value)" class="form-control" formControlName="stateId">
+                <option value="">select state</option>
+                <option *ngFor="let item of statedata" [value]="item.stateId">{{item.state}}</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <label for="">select city</label>
+            <select class="form-control" formControlName="cityId">
+                <option value="">select</option>
+                <option *ngFor="let item of citydata" [value]="item.cityId">{{item.city}}</option>
+            </select>
+        </div>
+
+
+        <button mat-flat-button color="primary">Post</button>
+        <button mat-flat-button color="warn" type="reset" (click)="cancel1()">Cancel</button>
+    </form>
+
+</div>
